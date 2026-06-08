@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@source "./**/*.{js,jsx}";
+
+/* ═══════════════════════════════════════════════════════════════
+   NUREH — Edit these colors to restyle the entire website
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --nureh-primary: #6b2d5c;
+  --nureh-primary-light: #9b3d87;
+  --nureh-secondary: #e8a838;
+  --nureh-secondary-light: #f5c96a;
+  --nureh-accent: #1f7a80;
+  --nureh-accent-light: #3cb8b0;
+  --nureh-rose: #d4537e;
+  --nureh-background: #fdf8f4;
+  --nureh-surface: #ffffff;
+  --nureh-card: #fffdfb;
+  --nureh-text: #1a1220;
+  --nureh-text-muted: #6d5f72;
+  --nureh-border: #eadfce;
+  --nureh-gradient-start: #6b2d5c;
+  --nureh-gradient-mid: #c94b73;
+  --nureh-gradient-end: #e8a838;
+  --nureh-whatsapp: #22c55e;
+  --nureh-shadow: rgba(107, 45, 92, 0.14);
+  --nureh-glow: rgba(232, 168, 56, 0.45);
+}
+
+@theme {
+  --color-primary: var(--nureh-primary);
+  --color-primary-light: var(--nureh-primary-light);
+  --color-secondary: var(--nureh-secondary);
+  --color-secondary-light: var(--nureh-secondary-light);
+  --color-accent: var(--nureh-accent);
+  --color-accent-light: var(--nureh-accent-light);
+  --color-rose: var(--nureh-rose);
+  --color-background: var(--nureh-background);
+  --color-surface: var(--nureh-surface);
+  --color-card: var(--nureh-card);
+  --color-foreground: var(--nureh-text);
+  --color-muted: var(--nureh-text-muted);
+  --color-border: var(--nureh-border);
+  --color-whatsapp: var(--nureh-whatsapp);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Poppins", system-ui, sans-serif;
+  --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-foreground font-body antialiased;
+    background-color: var(--nureh-background);
+    background-image:
+      radial-gradient(ellipse 90% 60% at 0% -10%, rgba(107, 45, 92, 0.07), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 0%, rgba(232, 168, 56, 0.09), transparent 50%),
+      radial-gradient(ellipse 50% 40% at 50% 100%, rgba(31, 122, 128, 0.05), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .nureh-gradient-text {
+    background: linear-gradient(
+      120deg,
+      var(--nureh-gradient-start) 0%,
+      var(--nureh-gradient-mid) 45%,
+      var(--nureh-gradient-end) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .nureh-gradient-bg {
+    background: linear-gradient(
+      135deg,
+      var(--nureh-gradient-start),
+      var(--nureh-gradient-mid),
+      var(--nureh-gradient-end)
+    );
+  }
+
+  .nureh-section-bg {
+    background:
+      linear-gradient(180deg, rgba(255, 253, 251, 0.9) 0%, rgba(253, 248, 244, 0.6) 100%),
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201, 75, 115, 0.06), transparent 70%);
+  }
+
+  .nureh-card-shadow {
+    box-shadow:
+      0 4px 6px -1px var(--nureh-shadow),
+      0 12px 28px -8px rgba(26, 18, 32, 0.08);
+  }
+
+  .nureh-card-glow {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+      0 8px 32px var(--nureh-shadow),
+      0 20px 48px -16px rgba(107, 45, 92, 0.18);
+  }
+
+  .nureh-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--nureh-border) 20%,
+      var(--nureh-secondary-light) 50%,
+      var(--nureh-border) 80%,
+      transparent
+    );
+  }
+
+  .nureh-price-tag {
+    background: linear-gradient(135deg, var(--nureh-primary), var(--nureh-rose));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .nureh-btn-primary {
+    background: linear-gradient(135deg, var(--nureh-primary), var(--nureh-rose));
+    box-shadow: 0 4px 14px rgba(107, 45, 92, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+
+  .nureh-btn-primary:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 6px 20px rgba(107, 45, 92, 0.45);
+  }
+
+  .nureh-btn-whatsapp {
+    background: linear-gradient(135deg, #16a34a, var(--nureh-whatsapp));
+    box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+
+  .nureh-btn-whatsapp:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.45);
+  }
+
+  .lightbox-overlay {
+    animation: lightbox-fade-in 0.2s ease-out;
+  }
+
+  .lightbox-image-wrap {
+    transform-origin: center center;
+  }
+
+  .lightbox-btn:active {
+    transform: scale(0.94);
+  }
+
+  .urdu-text {
+    font-family: var(--font-urdu);
+  }
+}
+
+@keyframes lightbox-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes card-shine {
+  0% {
+    transform: translateX(-120%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-15deg);
+  }
+}
